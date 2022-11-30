@@ -33,7 +33,7 @@ if (invalidZones.Any())
 {
 	zoneResults.InvalidZones = new List<ZoneOverlapInfo>();
 	zoneResults.InvalidZones.AddRange(
-		invalidZones.Select(iz => new ZoneOverlapInfo(iz.Name, iz.Id?.ToString(), iz.Points)));
+		invalidZones.Select(iz => new ZoneOverlapInfo(iz.Name, iz.Id?.ToString(), iz.ExternalReference, iz.Points)));
 
 	ConsoleHelper.MarkupLineInterpolated(
 		$"[bold yellow]{invalidZones.Count} zone(s) found with invalid coordinates, which will be skipped. See results for more info.[/]");
@@ -60,7 +60,8 @@ await foreach (var zoneOverlapResult in geotabService.FindOverlappingZonesAsync(
 		zoneResults.ZonesWithOverlaps.Add(new ZoneOverlapInfo(
 			sourceZone.Name,
 			sourceZone.Id!.ToString(),
-			OverlappedBy: overlappingZones.Select(o => new ZoneOverlapInfo(o.Name, o.Id!.ToString()))));
+			sourceZone.ExternalReference,
+			OverlappedBy: overlappingZones.Select(o => new ZoneOverlapInfo(o.Name, o.Id!.ToString(), o.ExternalReference))));
 	}
 	finally
 	{
