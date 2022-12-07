@@ -15,8 +15,8 @@ ConsoleHelper.WriteLine("Retrieving all zones from Geotab.  This could take a bi
 var zones = await geotabService.GetAsync<Zone>();
 if (zones?.Any() != true)
 {
-	ConsoleHelper.ReadKeyWithText("No zones were returned from Geotab.");
-	return;
+    ConsoleHelper.ReadKeyWithText("No zones were returned from Geotab.");
+    return;
 }
 
 ConsoleHelper.WriteLine($"{zones.Count} zone(s) retrieved from database.");
@@ -31,52 +31,52 @@ var invalidZones = zonesAreValid[false].ToList();
 
 if (invalidZones.Any())
 {
-	zoneResults.InvalidZones = new List<ZoneOverlapInfo>();
-	zoneResults.InvalidZones.AddRange(
-		invalidZones.Select(iz => new ZoneOverlapInfo(iz.Name, iz.Id?.ToString(), iz.ExternalReference, iz.Points)));
+    zoneResults.InvalidZones = new List<ZoneOverlapInfo>();
+    zoneResults.InvalidZones.AddRange(
+        invalidZones.Select(iz => new ZoneOverlapInfo(iz.Name, iz.Id?.ToString(), iz.ExternalReference, iz.Points)));
 
-	ConsoleHelper.MarkupLineInterpolated(
-		$"[bold yellow]{invalidZones.Count} zone(s) found with invalid coordinates, which will be skipped. See results for more info.[/]");
+    ConsoleHelper.MarkupLineInterpolated(
+        $"[bold yellow]{invalidZones.Count} zone(s) found with invalid coordinates, which will be skipped. See results for more info.[/]");
 }
 
 // Results will be in the order that they were requested
 var index = 0;
 await foreach (var zoneOverlapResult in geotabService.FindOverlappingZonesAsync(validZones))
 {
-	try
-	{
-		var sourceZone = validZones[index];
+    try
+    {
+        var sourceZone = validZones[index];
 
-		// Every request will return at least one zone, the zone that was used to
-		// define the search area.  Eliminate that from our results, since we
-		// only care about other zones that overlap.
-		var overlappingZones = zoneOverlapResult?.Where(o => o.Id != sourceZone.Id);
+        // Every request will return at least one zone, the zone that was used to
+        // define the search area.  Eliminate that from our results, since we
+        // only care about other zones that overlap.
+        var overlappingZones = zoneOverlapResult?.Where(o => o.Id != sourceZone.Id);
 
-		if (overlappingZones?.Any() != true)
-			continue;
+        if (overlappingZones?.Any() != true)
+            continue;
 
-		// Null forgiving reason: The MyGeotab API will always return (and specifically only returns)
-		// the ID for nested entities
-		zoneResults.ZonesWithOverlaps.Add(new ZoneOverlapInfo(
-			sourceZone.Name,
-			sourceZone.Id!.ToString(),
-			sourceZone.ExternalReference,
-			OverlappedBy: overlappingZones.Select(o => new ZoneOverlapInfo(o.Name, o.Id!.ToString(), o.ExternalReference))));
-	}
-	finally
-	{
-		if (index == 0) ConsoleHelper.WriteLine();
-		Console.Write($"\r{index + 1} zones processed");
-		index++;
-	}
+        // Null forgiving reason: The MyGeotab API will always return (and specifically only returns)
+        // the ID for nested entities
+        zoneResults.ZonesWithOverlaps.Add(new ZoneOverlapInfo(
+            sourceZone.Name,
+            sourceZone.Id!.ToString(),
+            sourceZone.ExternalReference,
+            OverlappedBy: overlappingZones.Select(o => new ZoneOverlapInfo(o.Name, o.Id!.ToString(), o.ExternalReference))));
+    }
+    finally
+    {
+        if (index == 0) ConsoleHelper.WriteLine();
+        Console.Write($"\r{index + 1} zones processed");
+        index++;
+    }
 }
 
 stopwatch.Stop();
 
 if (!zoneResults.ZonesWithOverlaps.Any())
 {
-	ConsoleHelper.ReadKeyWithText("\nNo overlapping zones found!");
-	return;
+    ConsoleHelper.ReadKeyWithText("\nNo overlapping zones found!");
+    return;
 }
 
 // Output results in JSON to a file

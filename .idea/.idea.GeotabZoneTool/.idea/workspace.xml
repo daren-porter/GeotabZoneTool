@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10f8acb1-b40a-421d-8afd-62b72779229e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/riderMarkupCache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool/.idea/riderMarkupCache.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/GeotabZoneTool.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/GlobalUsings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Models/ZoneOverlapInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Models/ZoneResults.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Services/GeotabApiService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Services/GeotabService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Utilities/ConsoleHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Utilities/GeotabMultiCallRequestBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GeotabZoneTool/Utilities/JsonHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GeotabZoneTool/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeotabZoneTool/Services/GeotabApiService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GeotabZoneTool/Services/GeotabApiService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -92,7 +75,17 @@
       <updated>1667062189330</updated>
       <workItem from="1667062190826" duration="428000" />
       <workItem from="1667062698082" duration="12841000" />
+      <workItem from="1669827833351" duration="3812000" />
+      <workItem from="1670443536236" duration="45000" />
     </task>
+    <task id="LOCAL-00001" summary="Zone ExternalReference now included with zone output">
+      <created>1669829314251</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669829314251</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,5 +96,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Zone ExternalReference now included with zone output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zone ExternalReference now included with zone output" />
   </component>
 </project>
